@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<style>
+			body{
+				background: linear-gradient(120deg, rgba(50, 150, 100, 0.4), rgba(0, 0, 100, 0)) fixed;
+				margin: 0;
+				padding: 0;
+			}
+			textarea{
+				outline: none;
+				resize: none;
+				width: 97%;
+				height: 150px;
+				background: rgba(48,48,48,.5);
+				border: 5px solid rgba(48,48,48,.0);
+				position: absolute;
+				bottom: 0px;
+				font-size: 18px;
+				
+			}
+			.box{
+				position: relative;
+				top: 50%;
+				left: 50%;
+				width: 500px;
+				height: 600px;
+				background: white;
+				margin-top: 200px;
+				margin-left: -250px;
+			}
+			button{
+				width: 70px;
+				height: 30px;
+				background: white;
+				outline: none;
+				border: 1px solid black;
+				cursor: pointer;
+				position: absolute;
+				right: 20px;
+				bottom: 20px;
+			}
+			.shuchu{
+				    width: 100%;
+				    display: block;
+    				height: 436px; 
+    				
+    			 
+    				overflow-x: hidden;
+    				overflow-y: auto;
+			}
+			.btn{
+				border-radius: 10px;
+				background: rgb(78,234,61);
+				margin-right: 10px;
+				word-wrap: break-word;
+				max-width: 150px;
+				display: inline-block;
+				float: right;
+				/*margin: 20px 0px 0px 60%;*/			
+				text-align: right;
+				font-size: 18px;
+				padding: 5px;
+			}
+			.btn2{
+				/*border-radius: 10px;
+				background: rgba(0,0,0,.1);
+				width: 150px;
+				word-wrap: break-word;*/
+				
+				margin-top: 20px;
+				margin-left: 15px;
+				/*text-align: left;
+				font-size: 18px;
+				padding: 5px;*/
+			}
+			.btn3{
+				border-radius: 10px;
+				background: rgba(0,0,0,.1);
+				max-width: 150px;
+				display: inline-block;
+				word-wrap: break-word;
+				text-align: right;
+				font-size: 18px;
+				padding: 5px;
+			
+				margin-left: 5px;
+			}
+			.btn4{
+				font-size: 15px;
+				color: #cccc;
+				margin-left: 55px;
+			}
+			.btn5{
+				width: 50px;
+				height: 50px;
+				background: url(img/微信图片_20181206183154.png)no-repeat;
+				background-size:100% ;
+				display: inline-block;
+				float: left;
+				margin-top: 5px;
+			}
+			.btn6{
+				width: 100%;
+				overflow: hidden;
+			}
+			.top{
+    background: #ccc;
+    width: 500px;
+    height: 80px;
+    position: absolute;
+    top: -80px;
+			}
+			.topzi{
+				
+				line-height: 30px;
+				font-size: 25px;
+				margin-top: 25px;
+				margin-left: 235px;
+			}
+			.toptu{
+				    width: 50px;
+    height: 50px;
+    background: url(img/微信图片_20181206183154.png);
+    background-size: 100%;
+    border-radius: 50%;
+    position: absolute;
+    top: 14px;
+    left: 177px;
+
+			}
+		</style>
+		<div class="box">
+			<div class="top">
+				<div class="toptu">
+					
+				</div>
+				<div class="topzi">马化腾</div>
+			</div>
+			<div class="shuchu">
+				
+			</div>
+			<textarea id="shuru">
+				
+			</textarea>
+			<button id="fasong">发送</button>
+		
+		</div>
+		
+	</body>
+	<script>
+		window.onload = function(){
+			var shuru = document.getElementById('shuru');
+			var fasong = document.getElementById('fasong');
+			var shuchu = document.getElementsByClassName('shuchu')[0];
+			
+			document.onkeydown = function(){
+			
+				
+				
+				if(event.keyCode == 13){
+					fasong.click();
+					return false;
+				}
+			}
+			
+			fasong.onclick = function(){
+				var a = shuru.value;
+				var d = document.createElement('p');
+				var div1 = document.createElement('div');
+				div1.className = 'btn6';
+				d.innerHTML = a;
+				d.className = 'btn';
+				div1.appendChild(d);
+				
+
+				if(a == undefined){
+					alert('不能为空')
+					return;
+				}else if(a.trim()== ''){
+					alert('不能为空')
+					return;	
+				}else if(a == "我想变强"){
+					var b = document.createElement('div');
+					var p = document.createElement('p');
+					var zi = document.createElement('div');
+					var touxian = document.createElement('div');
+					touxian.className = 'btn5';					
+					zi.innerHTML = '马化腾';
+					zi.className='btn4';
+					b.innerHTML = '充钱才能变强';
+					b.className = 'btn3';
+					p.appendChild(touxian);
+					p.appendChild(zi);
+					p.appendChild(b);
+					setTimeout(function(){
+						shuchu.appendChild(p);
+						shuchu.scrollTop = shuchu.scrollHeight;
+					},Math.round(Math.random()*3000+1000));
+					
+					shuchu.appendChild(div1);
+					p.className= 'btn2';
+				}else if(a == "你好" || a == 'hello'){
+					var b = document.createElement('div');
+					var p = document.createElement('p');
+					var zi = document.createElement('div');
+					var touxian = document.createElement('div');
+					touxian.className = 'btn5';					
+					zi.innerHTML = '马化腾';
+					zi.className='btn4';
+					b.innerHTML = '你好';
+					b.className = 'btn3';
+					p.appendChild(touxian);
+					p.appendChild(zi);
+					p.appendChild(b);
+					setTimeout(function(){
+						shuchu.appendChild(p);
+						shuchu.scrollTop = shuchu.scrollHeight;
+					},Math.round(Math.random()*3000+1000));
+					
+					p.className= 'btn2';
+					shuchu.appendChild(div1);
+				}else{
+					var b = document.createElement('div');
+					var p = document.createElement('p');
+					var zi = document.createElement('div');
+					var touxian = document.createElement('div');
+					touxian.className = 'btn5';					
+					zi.innerHTML = '马化腾';
+					zi.className='btn4';
+					b.innerHTML = '你说啥';
+					b.className = 'btn3';
+					p.appendChild(touxian);
+					p.appendChild(zi);
+					p.appendChild(b);
+					setTimeout(function(){
+						shuchu.appendChild(p);
+						shuchu.scrollTop = shuchu.scrollHeight;
+					},Math.round(Math.random()*3000+1000));
+					p.className= 'btn2';
+					shuchu.appendChild(div1);
+				}
+				
+				
+				shuru.value = '';
+				
+				
+				shuchu.scrollTop = shuchu.scrollHeight;
+				
+				
+			}
+			
+		}
+	</script>
+</html>
